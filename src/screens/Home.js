@@ -1,12 +1,13 @@
 import React from 'react';
-import Navigation from './src/navigation/Navigation';
-
-
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function Home() {
   return (
-      <Navigation/>
+    <View style={styles.container}>
+      <Text>Home</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
