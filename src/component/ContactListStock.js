@@ -6,50 +6,36 @@ import { FetchProducto } from "../api/fetch";
 const DATA = [
   {
     id: 1,
-    nombre: "carne",
-    categoria: "verdura",
+    cantidad: 5,
+    precio: 2000,
+    producto_id: 1,
     habilitado: true
 },
 {
     id: 2,
-    nombre: "manzana",
-    categoria: "fruta",
+    cantidad: 2,
+    precio: 2000,
+    producto_id: 2,
     habilitado: true
 },
 {
     id: 3,
-    nombre: "naranja",
-    categoria: "fruta",
-    habilitado: true
-},
-{
-    id: 4,
-    nombre: "palta",
-    categoria: "fruta",
-    habilitado: true
-},
-{
-    id: 5,
-    nombre: "reineta",
-    categoria: "pescado",
-    habilitado: true
-},
-{
-    id: 6,
-    nombre: "salmon",
-    categoria: "pescado",
+    cantidad: 5,
+    precio: 2000,
+    producto_id: 3,
     habilitado: true
 }
 ];
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>Nombre: {item.nombre}</Text>
-    <Text style={[styles.title, textColor]}>Categoria: {item.categoria}</Text>
+    <Text style={[styles.title, textColor]}>Producto: {item.producto_id}</Text>
+    <Text style={[styles.title, textColor]}>Cantidad: {item.cantidad}</Text>
+    <Text style={[styles.title, textColor]}>Precio: {item.precio}</Text>
   </TouchableOpacity>
 );
 
-const ContactList = () => {
+const ContactListStock = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -103,4 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactList;
+export default ContactListStock;

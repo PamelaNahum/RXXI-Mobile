@@ -6,39 +6,17 @@ import { FetchProducto } from "../api/fetch";
 const DATA = [
   {
     id: 1,
-    nombre: "carne",
-    categoria: "verdura",
-    habilitado: true
+    nombre: "ceviche",
+    detalle: "ceviche, cebolla morada, pimentón, limón",
+    categoria: "entradas",
+    precio: 5000
 },
 {
     id: 2,
-    nombre: "manzana",
-    categoria: "fruta",
-    habilitado: true
-},
-{
-    id: 3,
-    nombre: "naranja",
-    categoria: "fruta",
-    habilitado: true
-},
-{
-    id: 4,
-    nombre: "palta",
-    categoria: "fruta",
-    habilitado: true
-},
-{
-    id: 5,
-    nombre: "reineta",
-    categoria: "pescado",
-    habilitado: true
-},
-{
-    id: 6,
-    nombre: "salmon",
-    categoria: "pescado",
-    habilitado: true
+    nombre: "porotos granados",
+    detalle: "poroto, tomate, choclo",
+    categoria: "fondo",
+    precio: 8000
 }
 ];
 
@@ -46,10 +24,11 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
     <Text style={[styles.title, textColor]}>Nombre: {item.nombre}</Text>
     <Text style={[styles.title, textColor]}>Categoria: {item.categoria}</Text>
+    <Text style={[styles.title, textColor]}>Detalle: {item.detalle}</Text>
   </TouchableOpacity>
 );
 
-const ContactList = () => {
+const ContactListReceta = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -103,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactList;
+export default ContactListReceta;

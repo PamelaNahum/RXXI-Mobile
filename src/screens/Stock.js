@@ -2,20 +2,20 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import EditContact from '../component/EditContact';
-import ContactListReceta from '../component/ContactListReceta';
+import ContactListStock from '../component/ContactListStock';
 
 
-const Products = () => {
+const Stock = () => {
     
     return (
         <View style={styles.container}>
-          <ContactListReceta/>
+          <ContactListStock/>
           <StatusBar style="auto" />
         </View>
       );
   };
   
-export default Products;
+export default Stock;
 
 const styles = StyleSheet.create({
   container: {

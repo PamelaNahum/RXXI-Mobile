@@ -1,11 +1,12 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import ContactList from '../component/ContactList';
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <ContactList/>
       <StatusBar style="auto" />
     </View>
   );
