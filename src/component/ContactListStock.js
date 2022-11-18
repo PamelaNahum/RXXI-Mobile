@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, Pressable, View, TextInput } from "react-native";
 import ModalList from "./Modal";
 import { FetchProducto } from "../api/fetch";
 
@@ -59,13 +59,29 @@ const ContactListStock = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        extraData={selectedId}
+      <View style={{marginLeft:10, marginRight:10}}>
+      <Text style={{marginTop:'40%'}}>Ingresar solicitud a proveedor</Text>
+            <TextInput
+        style={styles.input}
+        placeholder="Producto"
+        keyboardType="text"
       />
-      <ModalList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+      <TextInput
+        style={styles.input}
+        placeholder="Cantidad"
+        keyboardType="numeric"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Precio"
+        keyboardType="numeric"
+      />
+      <Pressable
+              style={[styles.button, styles.buttonClose]}
+            >
+              <Text style={styles.textStyle}>Ingresar</Text>
+            </Pressable>
+            </View>
     </SafeAreaView>
   );
 };
@@ -73,7 +89,11 @@ const ContactListStock = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    borderRadius:30,
+    width:'90%',
+    height:'70%',
+    alignContent:'center',
+    display:'flex',
   },
   item: {
     padding: 20,
@@ -87,6 +107,29 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
   },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+
 });
 
 export default ContactListStock;

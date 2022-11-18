@@ -1,8 +1,11 @@
 import axios from 'axios';
-const baseUrl = 'https://192.168.1.91:8081/api/obtener/productos';
+const baseUrl = 'http://192.168.1.91:8081/api/obtener/productos';
 
 export function  FetchProducto() {
-    const inte = axios.get('http://192.168.1.91:8081/api/obtener/productos')
-    console.log(inte)
-    return inte
+  axios.get('http://192.168.1.91:8081/api/obtener/productos')
+			.then(res => {console.log(res.data); return res.data })
+			.catch(err => console.log('err', err));
+    //const inte = axios.get('http://192.168.1.91:8081/api/obtener/productos')
+    //console.log(res.data)
+    //return inte.data
   }

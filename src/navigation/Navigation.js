@@ -30,7 +30,7 @@ function MyNav(){
                     return(<MaterialCommunityIcons name="bowl-mix-outline" size={30} color="#F05742" />)
                 }
             }}/>
-            <Tab.Screen name='Stock' component={Stock}
+            <Tab.Screen name='Proveedor' component={Stock}
             options={{
                 tabBarIcon:({})=>{
                     

@@ -1,28 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View, TextInput } from "react-native";
 
-const ModalListProduct = ({modalVisible, setModalVisible, producto, setProduct}) => {
-  //const [producto, setProduct] = useState(producto);
-
-  const changeProduct = (name, text) => {
-    setProduct({ ...producto, [name]: text });
-  };
-
-  /*useEffect(()=>{
-    setProduct(producto)
-},[producto])*/
-
-  const editProduct = () => {
-    axios.get('http://192.168.1.91:8081/api/guardar/producto',{
-      id:producto.id,
-      nombre:producto.nombre,
-      categoria:producto.categoria,
-      habilitado:true,
-      stock:producto.stock
-    })
-			.then(res => {console.log(res.data); setData(res.data) })
-			.catch(err => console.log('err', err));
-  };
+const ModalListRecipe = ({modalVisible, setModalVisible}) => {
   
   return (
     <View style={styles.centeredView}>
@@ -37,40 +16,32 @@ const ModalListProduct = ({modalVisible, setModalVisible, producto, setProduct})
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <Text style={styles.modalText}>Editar Producto</Text>
-          {producto != undefined ? <><TextInput
+            <Text style={styles.modalText}>Editar Receta</Text>
+            <TextInput
         style={styles.input}
         placeholder="Nombre"
         keyboardType="text"
-        value={producto.nombre}
-        onChangeText={changeProduct}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Detalle"
+        keyboardType="text"
       />
       <TextInput
         style={styles.input}
         placeholder="Categoría"
         keyboardType="text"
-        value={producto.categoria}
-        onChangeText={changeProduct}
       />
       <TextInput
         style={styles.input}
-        placeholder="Stock"
+        placeholder="Precio"
         keyboardType="numeric"
-        value={producto.categoria}
-        onChangeText={changeProduct}
-      /></> :<></>}
-            
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() =>{editProduct(); setModalVisible(!modalVisible)}}
-            >
-              <Text style={styles.textStyle}>Agregar</Text>
-            </Pressable>
+      />
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Cancelar</Text>
+              <Text style={styles.textStyle}>Ingresar</Text>
             </Pressable>
           </View>
         </View>
@@ -129,4 +100,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ModalListProduct;
+export default ModalListRecipe;

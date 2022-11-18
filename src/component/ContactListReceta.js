@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 import ModalList from "./Modal";
 import { FetchProducto } from "../api/fetch";
+import ModalListRecipe from "./ModalRecipe";
 
 const DATA = [
   {
@@ -31,9 +33,17 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 const ContactListReceta = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [data,setData]= useState(DATA);
+
+  useEffect(()=>{
+    prueba();
+},[])
 
   const prueba = async()=>{
-    await FetchProducto()
+    axios.get('http://192.168.1.91:8081/api/obtener/receta')
+			.then(res => {console.log(res.data); setData(res.data) })
+			.catch(err => console.log('err', err));
+  
   }
 
   const renderItem = ({ item }) => {
@@ -53,12 +63,12 @@ const ContactListReceta = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={DATA}
+        data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
       />
-      <ModalList modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+      <ModalListRecipe modalVisible={modalVisible} setModalVisible={setModalVisible}/>
     </SafeAreaView>
   );
 };
