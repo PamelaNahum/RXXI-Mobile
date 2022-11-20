@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Alert,
   Modal,
@@ -9,17 +9,35 @@ import {
   TextInput,
 } from "react-native";
 
-const ModalListRecipe = ({
+const ModalAddProduct = ({
   modalVisible,
   setModalVisible,
   valueId,
-  valueNombre,
-  valueDetalle,
+  valueName,
   valueCategoria,
-  valuePrecio,
+  valueStock,
   onChangeText,
-  onPressEdit,
+  onPressAdd,
+  setProduct,
 }) => {
+  //const [producto, setProduct] = useState(producto);
+
+  /* useEffect(()=>{
+    setProduct("stock:"+valueStock)
+},[valueStock]) */
+
+  /* const editProduct = () => {
+    axios.get('http://192.168.1.91:8081/api/guardar/producto',{
+      id:producto.id,
+      nombre:producto.nombre,
+      categoria:producto.categoria,
+      habilitado:true,
+      stock:producto.stock
+    })
+			.then(res => {console.log(res.data); setData(res.data) })
+			.catch(err => console.log('err', err));
+  }; */
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -33,43 +51,43 @@ const ModalListRecipe = ({
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Editar Receta</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Nombre"
-              keyboardType="text"
-              value={valueNombre}
-              onChangeText={(value) => onChangeText("nombre", value)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Detalle"
-              keyboardType="text"
-              value={valueDetalle}
-              onChangeText={(value) => onChangeText("detalle", value)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Categoría"
-              keyboardType="text"
-              value={valueCategoria}
-              onChangeText={(value) => onChangeText("categoria", value)}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Precio"
-              keyboardType="numeric"
-              value={valuePrecio}
-              onChangeText={(value) => onChangeText("precio", value)}
-            />
+            <Text style={styles.modalText}>Agregar Producto</Text>
+            {valueName != undefined ? (
+              <>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Nombre"
+                  keyboardType="text"
+                  value={valueName}
+                  onChangeText={value => onChangeText('nombre', value)}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Categoría"
+                  keyboardType="text"
+                  value={valueCategoria}
+                  onChangeText={value => onChangeText('categoria', value)}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Stock"
+                  keyboardType="numeric"
+                  value={valueStock}
+                  onChangeText={value => onChangeText('stock', value)}
+                />
+              </>
+            ) : (
+              <></>
+            )}
+
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
-                onPressEdit();
+                onPressAdd();
                 setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>Editar</Text>
+              <Text style={styles.textStyle}>Agregar</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -109,15 +127,13 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     padding: 10,
-    width: 200,
     elevation: 2,
-    margin: 10,
   },
   buttonOpen: {
-    backgroundColor: "#F05742",
+    backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: "#F05742",
+    backgroundColor: "#2196F3",
   },
   textStyle: {
     color: "white",
@@ -131,10 +147,9 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    width: 200,
     borderWidth: 1,
     padding: 10,
   },
 });
 
-export default ModalListRecipe;
+export default ModalAddProduct;

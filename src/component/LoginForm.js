@@ -11,8 +11,7 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import ModalList from "./Modal";
-import { FetchProducto } from "../api/fetch";
+import { useNavigation } from '@react-navigation/native';
 
 const DATA = [
   {
@@ -46,7 +45,8 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-const ContactListStock = () => {
+const LoginForm = ({}) => {
+  const navigation = useNavigation(); 
   return (
     <View styles={styles.container}>
       <Image
@@ -55,24 +55,19 @@ const ContactListStock = () => {
       />
       <View style={styles.form}>
         <Text style={{ margin: 20, marginTop: 20 }}>
-          Ingresar solicitud a proveedor
+          Iniciar sesion
         </Text>
         <TextInput
           style={styles.input}
-          placeholder="Producto"
+          placeholder="Correo"
           keyboardType="text"
         />
         <TextInput
           style={styles.input}
-          placeholder="Cantidad"
-          keyboardType="numeric"
+          placeholder="Constraseña"
+          keyboardType="password"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Precio"
-          keyboardType="numeric"
-        />
-        <Pressable style={[styles.button, styles.buttonClose]}>
+        <Pressable style={[styles.button, styles.buttonClose]} onPress={() => navigation.navigate('Productos')}>
           <Text style={styles.textStyle}>Ingresar</Text>
         </Pressable>
       </View>
@@ -103,6 +98,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+    alignSelf:'center'
   },
   input: {
     height: 40,
@@ -118,13 +114,13 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginTop: "40%",
     borderRadius: 20,
-    zIndex: 1000,
     flex: 1,
     padding: 35,
     position: "absolute",
     alignSelf: "center",
     zIndex: 1000,
+    width:'80%'
   },
 });
 
-export default ContactListStock;
+export default LoginForm;

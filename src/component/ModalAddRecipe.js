@@ -9,7 +9,7 @@ import {
   TextInput,
 } from "react-native";
 
-const ModalListRecipe = ({
+const ModalAddRecipe = ({
   modalVisible,
   setModalVisible,
   valueId,
@@ -137,4 +137,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ModalListRecipe;
+export default ModalAddRecipe;
