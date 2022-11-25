@@ -135,7 +135,7 @@ function MyNav() {
               />
             );
           },
-          title: "Cerrar sesion",
+          title: "Iniciar sesion",
           headerStyle: {
             backgroundColor: "white",
             borderBottomColor: "#F05742",

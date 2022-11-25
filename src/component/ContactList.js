@@ -77,16 +77,27 @@ const ContactList = () => {
   }, []);
 
   const prueba = async () => {
+    
     axios
-      .get("http://192.168.1.91:8081/api/obtener/productos")
+      .get("http://192.168.1.87:8081/api/obtener/productos")
       .then((res) => {
         setData(res.data.sort((a, b) => b.stock - a.stock));
+        console.log("ayudaa")
       })
-      .catch((err) => console.log("err", err));
+      .catch((err) =>{ console.log("err", err); console.log("ayudaa");});
+     
+        /* return fetch('http://192.168.1.87:8081/api/obtener/productos')
+          .then((response) => response.json())
+          .then((json) => {
+            return json;
+          })
+          .catch((error) => {
+            console.error(error);
+          }); */
   };
   const editProduct = async () => {
     axios
-      .post("http://192.168.1.91:8081/api/guardar/producto", {
+      .post("http://192.168.1.87:8081/api/guardar/producto", {
         id: product.id,
         nombre: product.nombre,
         categoria: product.categoria,
@@ -107,7 +118,7 @@ const ContactList = () => {
   };
   const addProduct = async () => {
     axios
-      .post("http://192.168.1.91:8081/api/guardar/producto", {
+      .post("http://192.168.1.87:8081/api/guardar/producto", {
         nombre: product.nombre,
         categoria: product.categoria,
         habilitado: true,

@@ -27,7 +27,7 @@ const ModalAddProduct = ({
 },[valueStock]) */
 
   /* const editProduct = () => {
-    axios.get('http://192.168.1.91:8081/api/guardar/producto',{
+    axios.get('http://192.168.1.87:8081/api/guardar/producto',{
       id:producto.id,
       nombre:producto.nombre,
       categoria:producto.categoria,
@@ -127,13 +127,15 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     padding: 10,
+    width: 200,
     elevation: 2,
+    margin: 10,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "#F05742",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#F05742",
   },
   textStyle: {
     color: "white",
@@ -147,6 +149,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
+    width: 200,
     borderWidth: 1,
     padding: 10,
   },
