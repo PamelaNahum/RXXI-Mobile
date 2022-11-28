@@ -39,7 +39,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
       <Text style={[styles.title, textColor]}>Nombre: {item.nombre}</Text>
       <Text style={[styles.title, textColor]}>Categoria: {item.categoria}</Text>
       <Text style={[styles.title, textColor]}>Detalle: {item.detalle}</Text>
-      <Text style={[styles.title, textColor]}>Detalle: {item.precio}</Text>
+      <Text style={[styles.title, textColor]}>Precio: {item.precio}</Text>
     </View>
     <Feather
       name="edit"
@@ -73,7 +73,7 @@ const ContactListReceta = () => {
 
   const prueba = async () => {
     axios
-      .get("http://192.168.1.87:8081/api/obtener/receta")
+      .get("http://192.168.138.20:8081/api/obtener/receta")
       .then((res) => {
         setData(res.data);
       })
@@ -82,7 +82,7 @@ const ContactListReceta = () => {
 
   const editReceta = async () => {
     axios
-      .post("http://192.168.1.87:8081/api/guardar/receta", {
+      .post("http://192.168.138.20:8081/api/guardar/receta", {
         id: receta.id,
         nombre: receta.nombre,
         detalle: receta.detalle,
@@ -104,7 +104,7 @@ const ContactListReceta = () => {
 
   const addReceta = async () => {
     axios
-      .post("http://192.168.1.87:8081/api/guardar/receta", {
+      .post("http://192.168.138.20:8081/api/guardar/receta", {
         nombre: receta.nombre,
         detalle: receta.detalle,
         categoria: receta.categoria,
