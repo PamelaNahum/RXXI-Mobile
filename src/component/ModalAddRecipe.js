@@ -33,7 +33,7 @@ const ModalAddRecipe = ({
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Editar Receta</Text>
+            <Text style={styles.modalText}>Agregar Receta</Text>
             <TextInput
               style={styles.input}
               placeholder="Nombre"
@@ -69,7 +69,7 @@ const ModalAddRecipe = ({
                 setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>Editar</Text>
+              <Text style={styles.textStyle}>Agregar</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}

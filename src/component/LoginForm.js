@@ -66,6 +66,7 @@ const LoginForm = ({}) => {
           style={styles.input}
           placeholder="Constraseña"
           keyboardType="password"
+          secureTextEntry={true}
         />
         <Pressable style={[styles.button, styles.buttonClose]} onPress={() => navigation.navigate('Productos')}>
           <Text style={styles.textStyle}>Ingresar</Text>

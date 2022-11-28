@@ -27,7 +27,7 @@ const ModalAddProduct = ({
 },[valueStock]) */
 
   /* const editProduct = () => {
-    axios.get('http://192.168.138.20:8081/api/guardar/producto',{
+    axios.get('http://192.168.1.89:8081/api/guardar/producto',{
       id:producto.id,
       nombre:producto.nombre,
       categoria:producto.categoria,
